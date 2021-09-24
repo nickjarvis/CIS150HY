@@ -1,0 +1,40 @@
+# Modify this code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+"Child_data"
+-----
+"childID" varchar(50) PK FK >- Parent_data.childID
+"name" varchar(50) FK
+"age" int
+"birthdate" string
+"allergies" varchar(50)  
+"special instructions" varchar(200)
+"parent" varchar(50)
+"drop off/pickup times" int
+
+"Parent_data"
+----
+"name" varchar(50)
+"address" varchar(50)  
+"childID" varchar(50) PK
+"co-parent" varchar(50)
+"car make/model/color" varchar(50)
+"license plate #" varchar(50)   
+"driver's license number" varchar(50) FK
+    
+"Staff_data" 
+------------
+"staffid" int PK
+"name" varchar(50)
+"address" varchar(50)
+"children responsabe for" varchar(50) FK >- Child_data.name
+"pay rate" money
+
+
+"School_supplies_data"
+-----
+"books" varchar(200)
+"tech" varchar(200)
+"pens/penciles/crayons" varchar(50)
+"child assigned to" varchar(50) FK >- Child_data.name
